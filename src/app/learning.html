@@ -1,6 +1,9 @@
 -----------------------------ng switch case-----------------------------
-click event with switch case
+click event with switch case (particular div open on click event)
+define variable  selection
 
+<input type="hidden" #selection>
+                                 \
 <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>ng generate component xyz</pre>
       <pre *ngSwitchCase="'material'">ng add @angular/material</pre> --->  
@@ -16,5 +19,38 @@ click event with switch case
       <span>What is your name</span>
 
     </div>
-
+    <div class ="card card-small" (click)="selection.value='test'" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <span>What is your name</span>
+  
+      </div>
+  
 -----------------------------------------------------------------------------------------
+2. use selector as class
+        @Component({
+            selector: '.app-test',
+            templateUrl: './test.component.html',
+            styleUrls: ['./test.component.css']
+        })
+
+      #change   ->      <pre *ngSwitchCase="'name'"><app-test></app-test></pre>
+       #to      ->       <pre *ngSwitchCase="'name'" class="app-test"></pre>
+
+3. use as a attribute 
+     
+            @Component({
+                selector: '[app-test]',
+                template: `</div>
+                            hello</div>`, -> #we can use htl content instead of file  chnage templeteUrl to template
+                style: [`
+                            div{
+                                color:red;
+                            }
+                     `]
+            })
+
+            #change   ->      <pre *ngSwitchCase="'name'"><app-test></app-test></pre>
+            #to      ->       <pre *ngSwitchCase="'name'" app-test></pre>
+
+
+-------------------------------------------------------------------------------------------
