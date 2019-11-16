@@ -6,10 +6,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-   name ="abhishek";
-  constructor() { }
+   
+   public isDisabled:boolean=true;
+   userlist=[];
+   age=[];
+
+  constructor() { 
+    this.userlist[0]="abhishek";
+    this.age[0]=18;
+    this.userlist[1]="abhishekv vaggarwal";
+    this.age[1]=20;
+
+    this.userlist[2]="abhishek aroar";
+    this.age[2]=31;
+
+  }
 
   ngOnInit() {
   }
+  public userchange(event){
+    console.log(event.target.value);
+    alert("selected user is"+ event.target.value);
+  }
+  public toggle(){
+    this.isDisabled=!this.isDisabled;
+  }
+  
 
 }

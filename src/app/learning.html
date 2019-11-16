@@ -54,3 +54,66 @@ define variable  selection
 
 
 -------------------------------------------------------------------------------------------
+
+4 .interploation:
+       use to render data from class
+       use to evauation expression
+       use to javascript ethod eg {{name.length}}
+       use to call method;
+
+       assignnement not possible {{a=2+2}}->give binding error
+       not aware about global javascript variable
+
+5. property binding 
+       attribute defined by html but property by dom,they are not same
+
+       public id="myid";
+       public id=true;
+
+       (property binding) <input type="text" [id]="id"> or (intrepolation) <input type="text" id={{id}}
+
+       so why interpoltion?? it work only for string
+
+         <input type="button" disabled={{flag}}>
+         <input type="button" [disabled]="flag"> or  <input type="button" bind-disabled="flag"> 
+
+6. ngfor
+        <ul>
+            <li *ngFor="let item of items; let i = index">
+            {{i}} {{item}}
+            </li>
+        </ul>
+
+        <option *ngFor="let i of months">{{i}}</option>
+
+7 ngif
+<span *ngIf="isavailable; then condition1 else condition2">Condition is valid.</span>
+<ng-template #condition1>Condition is valid</ng-template>
+<ng-template #condition2>Condition is invalid</ng-template>
+
+             ng-template is an Angular element used to render HTML templates
+  eg.
+  <li *ngFor="let item of userlist;let i=index">
+        {{item}} --- {{age[i]}} -----
+       
+                <span *ngIf="age[i]>20;then valid else invalid"></span>
+                <ng-template #valid>elgible for vote</ng-template>
+                <ng-template #invalid>not elgible for vote</ng-template>
+        </li>
+8.click event
+  show and hidden on button click
+
+    <select (change)="userchange($event)" [hidden]="isDisabled">
+        <option *ngFor="let item of userlist">{{item}}</option>
+    </select>
+    
+    <button (click)="toggle()">click me</button>
+
+     isDisabled=false;
+    public userchange(event){
+        console.log(event.target.value);
+        alert("selected user is"+ event.target.value);
+      }
+      public toggle(){
+        this.isDisabled=!this.isDisabled;
+      }

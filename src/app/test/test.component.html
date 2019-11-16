@@ -1,1 +1,23 @@
-<p>hello  {{name}}</p>
+<!--- ---show value by array 
+
+<ul>
+        <li *ngFor="let item of userlist;let i=index">
+        {{item}} --- {{age[i]}} -----
+       
+                <span *ngIf="age[i]>20;then valid else invalid"></span>
+                <ng-template #valid>elgible for vote</ng-template>
+                <ng-template #invalid>not elgible for vote</ng-template>
+        </li>
+</ul>
+
+-->
+
+<select (change)="userchange($event)" [hidden]="isDisabled">
+    <option *ngFor="let item of userlist">{{item}}</option>
+</select>
+
+<button (click)="toggle()">click me</button>
+
+    
+
+
