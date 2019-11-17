@@ -1,23 +1,26 @@
-<!--- ---show value by array 
+<!-- - ---show value by array  -->
 
 <ul>
-        <li *ngFor="let item of userlist;let i=index">
+        <li *ngFor="let item of userlist;let i=index" [ngStyle]="{'color':age[i]>18? 'green':'red'}">
         {{item}} --- {{age[i]}} -----
        
-                <span *ngIf="age[i]>20;then valid else invalid"></span>
+                <span *ngIf="age[i]>18;then valid else invalid"></span>
                 <ng-template #valid>elgible for vote</ng-template>
                 <ng-template #invalid>not elgible for vote</ng-template>
         </li>
 </ul>
 
--->
 
+<!----
+        hide selection onchange
 <select (change)="userchange($event)" [hidden]="isDisabled">
     <option *ngFor="let item of userlist">{{item}}</option>
 </select>
 
 <button (click)="toggle()">click me</button>
+-->
 
-    
+<!-- <p [class]="color">helllo</p>
+<p [class.show]="isDisabled">helllo</p>
 
-
+<p [ngClass]="message">login passed</p> -->

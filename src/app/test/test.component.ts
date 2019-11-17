@@ -32,5 +32,15 @@ export class TestComponent implements OnInit {
     this.isDisabled=!this.isDisabled;
   }
   
+  public color="show";
+  public danger=true;
+  public normal=true;
+  public italic=true;
+  message={
+
+     "normal":!this.normal,
+     "danger":this.danger,
+     "italic":this.italic
+  }
 
 }

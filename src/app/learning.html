@@ -37,6 +37,7 @@ define variable  selection
        #to      ->       <pre *ngSwitchCase="'name'" class="app-test"></pre>
 
 3. use as a attribute 
+-----------------------------------------------------------------------------------------
      
             @Component({
                 selector: '[app-test]',
@@ -65,6 +66,7 @@ define variable  selection
        not aware about global javascript variable
 
 5. property binding 
+-----------------------------------------------------------------------------------
        attribute defined by html but property by dom,they are not same
 
        public id="myid";
@@ -78,6 +80,7 @@ define variable  selection
          <input type="button" [disabled]="flag"> or  <input type="button" bind-disabled="flag"> 
 
 6. ngfor
+---------------------------------------------------------------------------
         <ul>
             <li *ngFor="let item of items; let i = index">
             {{i}} {{item}}
@@ -87,6 +90,7 @@ define variable  selection
         <option *ngFor="let i of months">{{i}}</option>
 
 7 ngif
+------------------------------------------------------------------------------------
 <span *ngIf="isavailable; then condition1 else condition2">Condition is valid.</span>
 <ng-template #condition1>Condition is valid</ng-template>
 <ng-template #condition2>Condition is invalid</ng-template>
@@ -101,6 +105,7 @@ define variable  selection
                 <ng-template #invalid>not elgible for vote</ng-template>
         </li>
 8.click event
+------------------------------------------------------------------------------------------
   show and hidden on button click
 
     <select (change)="userchange($event)" [hidden]="isDisabled">
@@ -117,3 +122,77 @@ define variable  selection
       public toggle(){
         this.isDisabled=!this.isDisabled;
       }
+
+9. classs binding
+    --------------------------------------------------------------------------------------------------        
+        .css classs
+        .show{
+          color:red !important;
+        }
+
+        .ts class
+        public color="show";
+        isDisabled=true;
+
+        .html
+        <p [class]="color">helllo</p>
+        <p [class]="color" class="anotherclass">helllo</p> ->class binding has high priority
+    
+
+        condtionaly apply class on the basis of flag
+
+        <p [class.show]="isDisabled">helllo</p>
+
+----------------------------------------------------------------------------------------------
+10.ng-class
+---------------------------------------------------------------------------------------
+     The ng-class directive dynamically binds one or more CSS classes to an HTML element.
+     The value of the ng-class directive can be a string, an object, or an array.
+     The NgClass directive allows you to set the CSS class dynamically for a DOM element.
+
+
+    .ts
+
+    public danger=true;
+    public normal=true;
+    public italic=true;
+    message={
+  
+       "normal":!this.normal,
+       "danger":this.danger,
+       "italic":this.italic
+    }
+
+  .html
+
+  <p [ngClass]="message">login passed</p>
+
+   .css
+
+   .danger{
+    color:red !important;
+      }
+      .normal{
+          color:green !important;
+
+      }
+      .italic{
+        font-style:italic;
+}
+
+
+<div [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }"></<div>
+alternative of ngStyle
+<li [style.color]="getColor(person.country)">{{ person.name }} ({{ person.country }})
+
+
+  eg.
+
+  <li *ngFor="let item of userlist;let i=index" [ngStyle]="{'color':age[i]>18? 'green':'red'}">
+    {{item}} --- {{age[i]}} -----
+   
+            <span *ngIf="age[i]>20;then valid else invalid"></span>
+            <ng-template #valid>elgible for vote</ng-template>
+            <ng-template #invalid>not elgible for vote</ng-template>
+    </li>
+---------------------------------------------------------------------------------------------
