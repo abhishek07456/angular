@@ -20,7 +20,16 @@
 <button (click)="toggle()">click me</button>
 -->
 
-<!-- <p [class]="color">helllo</p>
-<p [class.show]="isDisabled">helllo</p>
+<!-- <p [class]="color">helllo</p> color is variable to bind css class
+<p [class.show]="isDisabled">helllo</p> show is style class
 
 <p [ngClass]="message">login passed</p> -->
+<!-- <button (click)="isDisabled=!isDisabled">click</button>
+{{isDisabled}} -->
+
+<!--get data from user-- #input is html template variable-->
+
+<input type="text" #input><button (click)=getlog(input.value)>log</button>
+<script>
+console.log("hello");
+</script>

@@ -195,4 +195,18 @@ alternative of ngStyle
             <ng-template #valid>elgible for vote</ng-template>
             <ng-template #invalid>not elgible for vote</ng-template>
     </li>
+    <button (click)="greeting=hello"></button>
+    {{greeting}}
+    <button (click)="isDisabled=!isDisabled">click</button>
+
 ---------------------------------------------------------------------------------------------
+11 .get data from template to class
+  #var called html template variable
+
+  <input type="text" #input><button (click)=getlog(input.value)>log</button>
+
+          getlog(value)
+          {
+            alert(value);
+          }
+--------------------------------------------------------------------------------------------

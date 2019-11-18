@@ -42,5 +42,9 @@ export class TestComponent implements OnInit {
      "danger":this.danger,
      "italic":this.italic
   }
+  getlog(value)
+  {
+    alert(value);
+  }
 
 }
