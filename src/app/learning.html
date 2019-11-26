@@ -272,3 +272,33 @@ here ngmodel age[0] like . if age[0] change in html it also reflect in class.arr
     }
 
 
+15.
+pipes
+---------------------------------------------------------------------------
+used to transform data before displaying in view
+
+name="abhihek"
+in html->{{name | lowercase}}
+{{name | reverse}}
+{{name | slice:3}} =>ihek
+{{name | slice:3:5}} (startwith,limit)
+
+public person={
+  name : "abhishek", ===>  {{person | json}}==> "display in json format"
+  age:18
+}                          
+
+{{123.23 | number :1.2-3 }}
+
+{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}.
+
+minIntegerDigits: The minimum number of integer digits before the decimal point. Default is 1.
+minFractionDigits: The minimum number of digits after the decimal point. Default is 0.
+maxFractionDigits: The maximum number of digits after the decimal point. Default is 3.
+
+
+{{25 | percent}}
+{{25 | currency}}default is usdoller
+{{25 | currency : 'INR'}}
+{{date}}
+more about===>https://angular.io/api/common/DatePipe

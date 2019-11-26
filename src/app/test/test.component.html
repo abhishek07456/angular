@@ -7,3 +7,38 @@
 <input type="number" [(ngModel)]="age1" value="age1"/>
 
 <button (click)="adduser()">add user</button>
+{{name | reverse}}
+{{person | json}}
+{{123.23 | number :1.2-3 }}
+{{25 | percent}}
+{{25 | currency}}
+{{25 | currency : 'INR'}}
+{{date | date:'short'}}
+{{date | date:'shortDate'}}
+
+{{date | date:'shortTime'}}
+{{date | date:'dd/MMMM/y'}}
+
+//custom pipe
+
+   ng generate pipe "pipename"
+                import { Pipe, PipeTransform } from '@angular/core';
+
+                @Pipe({
+                name: 'reverse'
+                })
+                export class ReversePipe implements PipeTransform {
+
+                transform(val: String): String {
+                length=val.length;
+                let s="";
+                for(let i=length-1;i>=0;i--)
+                {
+                        s+=val.charAt(i);
+                }
+                return s;
+                }
+
+                }
+  {{name | reverse}}
+  --------------------------------------------------------------------------------

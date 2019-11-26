@@ -56,5 +56,10 @@ export class TestComponent implements OnInit {
     this.name="";
     this.age1=0;
   }
+   public person={
+     name : "abhishek",
+     age:18
+   }
 
+   public date=new Date();
 }

@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    SignupComponent
+    SignupComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
