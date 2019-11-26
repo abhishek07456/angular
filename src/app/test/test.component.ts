@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: '[app-test]',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-   
+  
    public isDisabled:boolean=true;
    userlist=[];
    age=[];
 
   constructor() { 
+    console.log("constructor called");
     this.userlist[0]="abhishek";
     this.age[0]=18;
     this.userlist[1]="abhishekv vaggarwal";
@@ -23,6 +23,7 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("ng onit called");
   }
   public userchange(event){
     console.log(event.target.value);
@@ -45,6 +46,15 @@ export class TestComponent implements OnInit {
   getlog(value)
   {
     alert(value);
+  }
+
+  public name="";
+  public age1=0;
+  public adduser(){
+    this.userlist.push(this.name);
+    this.age.push(this.age1);
+    this.name="";
+    this.age1=0;
   }
 
 }

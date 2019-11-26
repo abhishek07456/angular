@@ -1,35 +1,9 @@
-<!-- - ---show value by array  -->
-
 <ul>
-        <li *ngFor="let item of userlist;let i=index" [ngStyle]="{'color':age[i]>18? 'green':'red'}">
-        {{item}} --- {{age[i]}} -----
-       
-                <span *ngIf="age[i]>18;then valid else invalid"></span>
-                <ng-template #valid>elgible for vote</ng-template>
-                <ng-template #invalid>not elgible for vote</ng-template>
+        <li *ngFor="let row of userlist;let i=index" [ngStyle]="{'color':age[i]>18?'green':'red'}">
+                {{row}}---{{age[i]}} <input type="text" [(ngModel)]="age[i]" value="{{age[i]}}"/>
         </li>
 </ul>
+<input type="text" [(ngModel)]="name"/>
+<input type="number" [(ngModel)]="age1" value="age1"/>
 
-
-<!----
-        hide selection onchange
-<select (change)="userchange($event)" [hidden]="isDisabled">
-    <option *ngFor="let item of userlist">{{item}}</option>
-</select>
-
-<button (click)="toggle()">click me</button>
--->
-
-<!-- <p [class]="color">helllo</p> color is variable to bind css class
-<p [class.show]="isDisabled">helllo</p> show is style class
-
-<p [ngClass]="message">login passed</p> -->
-<!-- <button (click)="isDisabled=!isDisabled">click</button>
-{{isDisabled}} -->
-
-<!--get data from user-- #input is html template variable-->
-
-<input type="text" #input><button (click)=getlog(input.value)>log</button>
-<script>
-console.log("hello");
-</script>
+<button (click)="adduser()">add user</button>

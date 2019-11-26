@@ -210,3 +210,65 @@ alternative of ngStyle
             alert(value);
           }
 --------------------------------------------------------------------------------------------
+
+13 .2 whay binding
+      input type=text nam=username;
+      input type=text nam=password;
+   
+
+      public username;
+      public password;
+
+      whenever i change in html chnge refect in class or vice versa called 2 way binding.
+
+      **Data binding in AngularJS is the synchronization between the model and the view. When data in the model changes, the view reflects the change, and when data in the view changes, the model is updated as well.
+
+      import { FormsModule } from '@angular/forms';
+      imports: [
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule
+    ],
+     add or import beacuse angular not aware about it is separarte module.
+
+     <input type="text" [(ngModel)]="name"/>
+        {{name}}
+  --------------------------------------------------------------------------------------------------
+14. component interaction
+
+    parent component can send data to chil cmponent or vice versa using @input and @output decorator
+
+    parent
+    |
+    | can take data as @input()
+    |
+    child
+    |
+    |  send output as @output()
+    |
+    parent
+
+15. dynmically change age and color
+here ngmodel age[0] like . if age[0] change in html it also reflect in class.array having index is 0
+----------------------------------------------------------------------------------------------
+<ul>
+  <li *ngFor="let row of userlist;let i=index" [ngStyle]="{'color':age[i]>18?'green':'red'}">
+          {{row}}---{{age[i]}}--<input type="text" [(ngModel)]="age[i]" value="{{age[i]}}"/>
+  </li>
+</ul>
+<input type="text" [(ngModel)]="name"/>
+<input type="number" [(ngModel)]="age1"/>
+
+<button (click)="adduser()">add user</button>
+
+
+   public name="";
+    public age1=0;
+    public adduser(){
+      this.userlist.push(this.name);
+      this.age.push(this.age1);
+      this.name="";
+      this.age1=0;
+    }
+
+
